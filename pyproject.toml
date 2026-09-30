@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "roadvision-ai"
+version = "0.1.0"
+description = "Road damage detection, road segmentation, depth estimation, tracking and severity scoring."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "ultralytics>=8.3.0",
+  "opencv-python>=4.10.0",
+  "numpy>=1.26.0",
+  "pandas>=2.2.0",
+  "Pillow>=10.0.0",
+  "PyYAML>=6.0.1",
+  "torch>=2.3.0",
+  "transformers>=4.44.0",
+  "accelerate>=0.33.0",
+]
+
+[project.scripts]
+roadvision-analyse = "roadvision.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
