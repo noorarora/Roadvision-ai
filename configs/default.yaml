@@ -1,0 +1,28 @@
+detector:
+  confidence: 0.35
+  iou: 0.50
+  tracker: bytetrack.yaml
+  allowed_classes: []
+
+segmenter:
+  model: nvidia/segformer-b0-finetuned-cityscapes-1024-1024
+  road_label: road
+  min_overlap: 0.35
+  every_n_frames: 3
+
+depth:
+  model: depth-anything/Depth-Anything-V2-Small-hf
+  every_n_frames: 3
+
+severity:
+  confidence_weight: 0.20
+  area_weight: 0.30
+  depth_weight: 0.35
+  lane_weight: 0.15
+  medium_threshold: 35
+  high_threshold: 65
+
+output:
+  draw_road_mask: true
+  draw_depth_value: true
+  unique_track_cooldown_s: 2.0
